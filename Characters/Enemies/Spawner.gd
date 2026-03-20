@@ -1,12 +1,12 @@
 extends Node2D
 
 
-@export var character: PackedScene
-@export var spawn_rate: float
-@export var min_distance: float
-@export var max_distance: float
-@export var max_units: int
-@export var container_name: String
+@export var character: PackedScene # The character to spawn
+@export var spawn_rate: float = 1.0 # Time in seconds between spawns
+@export var min_distance: float = 100.0 # Minimum distance from the player to spawn
+@export var max_distance: float = 300.0 # Maximum distance from the player to spawn
+@export var max_units: int = 0 # Maximum number of units to spawn (0 for infinite)
+@export var container_name: String = "EnemiesContainer"
 
 var time_since_last_spawn: float = 0
 var total_spawned: int
@@ -24,16 +24,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	time_since_last_spawn += delta
 	if time_since_last_spawn >= spawn_rate:
-		for i in time_since_last_spawn / spawn_rate:
-			spawnCharacter()
+		for i in floori(time_since_last_spawn / spawn_rate):
 			total_spawned += 1
+			spawnCharacter()
 			if max_units > 0 and total_spawned >= max_units:
 				queue_free()
 				return
 		time_since_last_spawn = 0
-	else:
-		time_since_last_spawn += delta
 
 
 func spawnCharacter():

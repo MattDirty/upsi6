@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ddd3vqedpobcw"]
+
+[ext_resource type="Script" uid="uid://cqyv4seiacuvy" path="res://Characters/Enemies/Basic/Basic.gd" id="1_d1vwe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujrr4"]
+
+[node name="Basic" type="CharacterBody2D" unique_id=324639449]
+script = ExtResource("1_d1vwe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=870842199]
+shape = SubResource("RectangleShape2D_ujrr4")
+
+[node name="Label" type="Label" parent="." unique_id=568343073]
+offset_left = -27.0
+offset_top = -29.0
+offset_right = 26.0
+offset_bottom = -6.0
+horizontal_alignment = 1

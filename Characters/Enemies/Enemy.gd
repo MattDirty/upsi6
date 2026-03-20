@@ -1,32 +1,50 @@
 class_name Enemy extends CharacterBody2D
 
-var health: int = 10
-var max_health: int = 10
-var speed: int = 1
+@export var word: String = "enemy"
+var typed: String = ""
+@export var speed: int = 1
 var damages: int = 1
-@onready var Animator = $"CharacterAnimator"
-@onready var HealthBar: ProgressBar = $"HealthBar"
+@onready var label: Label = $"Label"
+@onready var PlayerInstance := $"%Player"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	health = max_health
-	HealthBar.max_value = max_health
-	HealthBar.value = health
-	HealthBar.visible = false
+	word = WordsList.get_random_word()
+	typed = ""
+	label.text = word
+	
 
+func _input(event: InputEvent) -> void:
+	if event is not InputEventKey or not event.pressed:
+		return
+	
+	var key = OS.get_keycode_string(event.keycode)
+	if key.length() != 1:
+		return
+	if key.to_lower() == word[0]:
+		typed += key
+		word = word.substr(1, word.length())
+		label.text = word
+	elif typed.length() > 0:
+		word = typed.to_lower() + word
+		typed = ""
+		label.text = word
+	if (word.length() == 0):
+		queue_free()
+	pass
+
+func creep_towards_player(player_position: Vector2, delta: float):
+	var direction = (player_position - position).normalized()
+	velocity = direction * speed
+	move_and_slide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var direction = Orientation.get_direction_from_angle(velocity.angle())
+
+	creep_towards_player(PlayerInstance.position, _delta)
+
 	var action = "Idle"
 	if velocity.length() > 0:
 		action = "Move"
-	Animator.changeAnimation(action, direction)
-
-
-func take_damages(damagesTaken: int):
-	health -= damagesTaken
-	HealthBar.value = health
-	HealthBar.visible = true
-	if health <= 0:
-		queue_free()
+	# Animator.changeAnimation(action, direction)

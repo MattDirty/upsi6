@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://bgtvss1wrcgym"]
+
+[ext_resource type="Script" uid="uid://qpstmjdshhb7" path="res://main_menu.gd" id="1_i26rj"]
+[ext_resource type="Texture2D" uid="uid://77b4y1wh0mlh" path="res://MainMenu/Background.png" id="2_eiy7p"]
+[ext_resource type="Texture2D" uid="uid://cscmswohrlbl3" path="res://MainMenu/Start_off.png" id="3_qoqlk"]
+[ext_resource type="Texture2D" uid="uid://cmcw148l5oeyg" path="res://MainMenu/Start_on2.png" id="4_iwfq2"]
+[ext_resource type="Texture2D" uid="uid://kiq3t55lstfw" path="res://MainMenu/Start_on1.png" id="5_31qfy"]
+[ext_resource type="Texture2D" uid="uid://kj467vrjsk75" path="res://MainMenu/Options_off.png" id="5_e2xy7"]
+[ext_resource type="Texture2D" uid="uid://4a1ywri8jxub" path="res://MainMenu/Options_on2.png" id="6_fimr5"]
+[ext_resource type="Texture2D" uid="uid://blnq7vibrmko4" path="res://MainMenu/Quit_off.png" id="7_u7cqb"]
+[ext_resource type="Texture2D" uid="uid://b85iat88i67ux" path="res://MainMenu/Quit_on2.png" id="8_afec1"]
+[ext_resource type="Texture2D" uid="uid://bruqostqv2td1" path="res://MainMenu/Options_on1.png" id="8_qie43"]
+[ext_resource type="Texture2D" uid="uid://ktia4o0k3qb4" path="res://MainMenu/Title.png" id="9_fimr5"]
+[ext_resource type="Texture2D" uid="uid://bpgx60peqd3u6" path="res://MainMenu/Quit_on1.png" id="11_61cf8"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_i26rj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(600, 325)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_eiy7p")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 230.0
+offset_right = 1200.0
+offset_bottom = 830.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.96, 0.656437)
+
+[node name="MainButtons" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Buttons" type="Control" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+
+[node name="Start" type="TextureButton" parent="CenterContainer/MainButtons/Buttons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 2.88
+anchor_bottom = 1.813
+offset_left = -37.5002
+offset_top = -30.3627
+offset_right = 519.5
+offset_bottom = 250.637
+scale = Vector2(0.174, 0.22)
+texture_normal = ExtResource("3_qoqlk")
+texture_pressed = ExtResource("4_iwfq2")
+texture_hover = ExtResource("5_31qfy")
+
+[node name="Options" type="TextureButton" parent="CenterContainer/MainButtons/Buttons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 7.277
+anchor_bottom = 2.555
+offset_left = -56.2501
+offset_top = 45.806
+offset_right = 767.75
+offset_bottom = 326.806
+scale = Vector2(0.174, 0.22)
+texture_normal = ExtResource("5_e2xy7")
+texture_pressed = ExtResource("6_fimr5")
+texture_hover = ExtResource("8_qie43")
+
+[node name="Quit" type="TextureButton" parent="CenterContainer/MainButtons/Buttons"]
+layout_mode = 0
+offset_left = -21.8751
+offset_top = 126.545
+offset_right = 419.125
+offset_bottom = 407.545
+scale = Vector2(0.174, 0.22)
+texture_normal = ExtResource("7_u7cqb")
+texture_pressed = ExtResource("8_afec1")
+texture_hover = ExtResource("11_61cf8")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(304, 186)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("9_fimr5")
+
+[connection signal="pressed" from="CenterContainer/MainButtons/Buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/Buttons/Quit" to="." method="_on_quit_pressed"]

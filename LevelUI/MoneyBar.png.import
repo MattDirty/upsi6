@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfn1ackm4oim5"
-path="res://.godot/imported/Tree.png-b23d86b37904953dc26f0330b4acc921.ctex"
+uid="uid://pss63x4s21lx"
+path="res://.godot/imported/MoneyBar.png-9382a945b548e529ed321848a92340dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/Objects/Tree/Tree.png"
-dest_files=["res://.godot/imported/Tree.png-b23d86b37904953dc26f0330b4acc921.ctex"]
+source_file="res://LevelUI/MoneyBar.png"
+dest_files=["res://.godot/imported/MoneyBar.png-9382a945b548e529ed321848a92340dc.ctex"]
 
 [params]
 

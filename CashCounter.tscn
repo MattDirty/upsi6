@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfrec1pm1pgt1"]
+
+[ext_resource type="Texture2D" uid="uid://pss63x4s21lx" path="res://LevelUI/MoneyBar.png" id="1_qr7vd"]
+[ext_resource type="FontFile" uid="uid://rx80chcdgq1h" path="res://Fonts/SilomBol.ttf" id="2_4k6bp"]
+[ext_resource type="Texture2D" uid="uid://cw0nv8ykcfjll" path="res://LevelUI/Currency.png" id="3_c840y"]
+
+[node name="CashCounter" type="NinePatchRect"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -295.0
+offset_right = -255.0
+offset_bottom = 40.0
+grow_horizontal = 0
+scale = Vector2(6.84, 2.72)
+texture = ExtResource("1_qr7vd")
+
+[node name="CashVal" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.87135
+offset_top = -11.1765
+offset_right = 43.1287
+offset_bottom = 20.8235
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.232372, 0.550481)
+theme_override_fonts/font = ExtResource("2_4k6bp")
+theme_override_font_sizes/font_size = 28
+text = "350"
+
+[node name="CashBar" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -9.00585
+offset_top = -8.97059
+offset_right = 133.994
+offset_bottom = 134.029
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.0273319, 0.0647057)
+texture = ExtResource("3_c840y")

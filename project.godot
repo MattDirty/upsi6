@@ -19,6 +19,10 @@ run/main_scene="res://Playground.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+WordsList="*uid://dt5ec8lttm32u"
+
 [input]
 
 move_up={

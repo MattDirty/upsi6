@@ -1,7 +1,6 @@
 extends CharacterBody2D
 class_name Player
 
-@onready var Animator = $CharacterAnimator
 @export var speed = 400
 @export var health := 100
 @onready var directionsNode = {
@@ -38,7 +37,6 @@ func updateDirection(directionNode: Node2D):
 
 
 func _ready():
-	Animator.changeAnimation(action, direction)
 	Manager.PlayerInstance = self
 
 
@@ -58,18 +56,8 @@ func _input(event: InputEvent) -> void:
 	
 	if (directionMode and event.is_pressed() and key != "Shift"):
 		currentWord += key.to_lower()
-
-	
-
-	
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	# setDirectionInRelationToMouse()
-	Animator.changeAnimation(action, direction)
-	move_and_slide()
-
-
-func setDirectionInRelationToMouse():
-	direction = Orientation.get_direction_from_angle(get_local_mouse_position().angle())
+	pass

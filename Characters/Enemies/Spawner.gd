@@ -1,12 +1,13 @@
 extends Node2D
 
+# Spawner for enemies. Handles spawning them at a certain rate and distance from the player, and keeps track of how many have been spawned.
 
-@export var character: PackedScene # The character to spawn
-@export var spawn_rate: float = 1.0 # Time in seconds between spawns
-@export var min_distance: float = 100.0 # Minimum distance from the player to spawn
-@export var max_distance: float = 300.0 # Maximum distance from the player to spawn
-@export var max_units: int = 0 # Maximum number of units to spawn (0 for infinite)
-@export var container_name: String = "EnemiesContainer"
+@export var character: PackedScene ## PackedScene of the enemy character to spawn
+@export var spawn_rate: float = 1.0 ## Time interval between enemy spawns in seconds
+@export var min_distance: float = 100.0 ## Minimum spawn distance from player in pixels
+@export var max_distance: float = 300.0 ## Maximum spawn distance from player in pixels
+@export var max_units: int = 0 ## Maximum number of enemies to spawn (0 = unlimited)
+@export var container_name: String = "EnemiesContainer" ## Name of the container node for spawned enemies
 
 var time_since_last_spawn: float = 0
 var total_spawned: int

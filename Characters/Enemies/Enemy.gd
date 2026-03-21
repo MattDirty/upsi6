@@ -3,7 +3,8 @@ class_name Enemy extends CharacterBody2D
 @export var word: String = "enemy"
 var typed: String = ""
 @export var speed: int = 10
-var damages: int = 1
+@export var damages: int = 1
+@export var value: int = 1
 @onready var label: Label = $"Label"
 
 # Called when the node enters the scene tree for the first time.
@@ -11,6 +12,11 @@ func _ready():
 	word = WordsList.get_random_word()
 	typed = ""
 	label.text = word
+
+
+func die():
+	#overwrite this in child classes for different death behavior
+	queue_free()
 	
 
 func _input(event: InputEvent) -> void:
@@ -29,7 +35,7 @@ func _input(event: InputEvent) -> void:
 		typed = ""
 		label.text = word
 	if (word.length() == 0):
-		queue_free()
+		die()
 	pass
 
 func creep_towards_vector2(target: Vector2, delta: float):

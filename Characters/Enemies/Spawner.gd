@@ -13,6 +13,27 @@ var time_since_last_spawn: float = 0
 var total_spawned: int
 var container: Node
 
+# gestion images des ennemis
+var dir_name := "res://Characters/Enemies/Meteorite/"
+var dir := DirAccess.open(dir_name)
+var file_names := dir.get_files()
+var tex = ImageTexture.new()
+var img = Image
+const ENEMY_TEXTURES = [
+	preload("res://Characters/Enemies/Meteorite/Comet03.png"),
+	preload("res://Characters/Enemies/Meteorite/Comet04.png"),
+	preload("res://Characters/Enemies/Meteorite/Comet05.png"),
+	preload("res://Characters/Enemies/Meteorite/Comet06.png"),
+	preload("res://Characters/Enemies/Meteorite/Comet07.png"),
+	preload("res://Characters/Enemies/Meteorite/Comet08.png"),
+	preload("res://Characters/Enemies/Meteorite/Comet09.png"),
+	preload("res://Characters/Enemies/Meteorite/Comet10.png"),
+	preload("res://Characters/Enemies/Meteorite/Comet11.png"),
+	preload("res://Characters/Enemies/Meteorite/Comet12.png"),
+	preload("res://Characters/Enemies/Meteorite/Comet13.png"),
+	preload("res://Characters/Enemies/Meteorite/Comet14.png"),
+]
+
 @onready var PlayerInstance := $"%Player"
 
 
@@ -41,4 +62,11 @@ func spawnCharacter():
 		var new_character = character.instantiate()
 		new_character.name = container_name + "_unit" + str(total_spawned)
 		new_character.position = spawn_position + PlayerInstance.position
+		var random_n: int = randi() % ENEMY_TEXTURES.size()
+		var tex = ENEMY_TEXTURES[random_n]                  
+
 		container.add_child(new_character)
+		var enemy_sprite = new_character.get_node("EnemySprite")
+		enemy_sprite.scale = Vector2(0.2, 0.2)  
+		print("tex: ", tex)  
+		enemy_sprite.texture = tex

@@ -4,10 +4,15 @@
 [ext_resource type="Script" uid="uid://b7sav0hm61fgk" path="res://Characters/Player/Player.gd" id="1_mdy0c"]
 [ext_resource type="PackedScene" uid="uid://cglgd13076bip" path="res://Characters/CharacterAnimator.tscn" id="2_2fedm"]
 [ext_resource type="LabelSettings" uid="uid://6ho7k12bl0cd" path="res://Characters/Player/cardinal_label_settings.tres" id="4_aj84o"]
-[ext_resource type="Theme" uid="uid://bb5e7ts486nsv" path="res://Characters/Player/Player.tres" id="5_8u6uf"]
 [ext_resource type="Texture2D" uid="uid://biw0qc7ulus74" path="res://Characters/Player/Sprites/Tourelle.png" id="5_oc658"]
 [ext_resource type="Script" uid="uid://4pa13ki52tus" path="res://Characters/CharacterAnimator.gd" id="6_11ham"]
-[ext_resource type="Script" uid="uid://135nm75rckbe" path="res://Characters/Player/tourelle.gd" id="7_vpjpg"]
+[ext_resource type="Script" uid="uid://135nm75rckbe" path="res://Characters/Player/tank.gd" id="7_vpjpg"]
+[ext_resource type="Texture2D" uid="uid://ulc1gs22srju" path="res://Characters/Player/Frames/Ship/Bold/Player_Inf_R1.png" id="8_wraqo"]
+[ext_resource type="Texture2D" uid="uid://c0by08sgybru0" path="res://Characters/Player/Frames/Ship/Bold/Player_Inf_L1.png" id="9_0ij6m"]
+[ext_resource type="Texture2D" uid="uid://cpcoym0y2mqus" path="res://Characters/Player/Frames/Ship/Bold/Player_Inf_L2 (2).png" id="10_2xv0b"]
+[ext_resource type="Texture2D" uid="uid://yh1uyrngp4t6" path="res://Characters/Player/Frames/Ship/Bold/Player_Inf_L2.png" id="11_7jpmk"]
+[ext_resource type="Texture2D" uid="uid://c0nxb2s5xi64w" path="res://Characters/Player/Frames/Ship/Bold/Player_Inf_R2.png" id="12_5xivi"]
+[ext_resource type="Texture2D" uid="uid://dh1bbmofcytwe" path="res://Characters/Player/Frames/Ship/Bold/Player_Inf_R3.png" id="13_k8aph"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_au0si"]
 size = Vector2(8, 16)
@@ -21,6 +26,44 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_74fb0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_wraqo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0ij6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2xv0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0ij6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7jpmk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wraqo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5xivi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_k8aph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5xivi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wraqo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=330563669]
@@ -223,11 +266,19 @@ animation = &"idle"
 script = ExtResource("6_11ham")
 metadata/_custom_type_script = "uid://4pa13ki52tus"
 
-[node name="Tourelle" type="CharacterBody2D" parent="." unique_id=488524529]
+[node name="Tank" type="CharacterBody2D" parent="." unique_id=488524529]
 unique_name_in_owner = true
 script = ExtResource("7_vpjpg")
 
-[node name="Sprite2D" type="Sprite2D" parent="Tourelle" unique_id=517331446]
+[node name="TankSprite" type="AnimatedSprite2D" parent="Tank" unique_id=307986981]
+unique_name_in_owner = true
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_74fb0")
+animation = &"idle"
+
+[node name="Tourelle" type="CharacterBody2D" parent="." unique_id=531706472]
+
+[node name="TourelleSprite" type="Sprite2D" parent="Tourelle" unique_id=517331446]
 unique_name_in_owner = true
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_oc658")

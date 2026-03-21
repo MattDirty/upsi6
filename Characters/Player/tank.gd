@@ -1,19 +1,24 @@
-class_name Tourelle extends CharacterBody2D
+class_name Tank extends CharacterBody2D
 
 var typed: String = ""
 var directions = {
-	"north": 0.0,
-	"south": 180.0,
-	"east": 90.0,
-	"west": -90.0
+	"north": 0,
+	"northeast": 45,
+	"east": 90,
+	"southeast": 135,
+	"south": 180,
+	"southwest": -135,
+	"west": -90,
+	"northwest": -45
 }
 @export var speed: int = 1
 var damages: int = 1
 @onready var PlayerInstance := %Tourelle
+@onready var _animated_sprite = %TankSprite
+
 
 func _ready():
-	typed = ""
-	
+	_animated_sprite.play("idle")
 
 func _input(event: InputEvent) -> void:
 	if event is not InputEventKey or not event.pressed:
@@ -43,4 +48,4 @@ func check_directions() -> bool:
 	return false
 
 func rotate_sprite(angle_degrees: float) -> void:
-	%Sprite2D.rotation_degrees = angle_degrees
+	%TankSprite.rotation_degrees = angle_degrees

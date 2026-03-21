@@ -40,7 +40,7 @@ func _input(event: InputEvent) -> void:
 
 func creep_towards_vector2(target: Vector2, delta: float):
 	var direction = (target - position).normalized()
-	velocity = direction * speed * delta
+	velocity = direction * speed * delta * 100
 	move_and_slide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

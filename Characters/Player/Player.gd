@@ -6,10 +6,6 @@ class_name Player
 @export var health := 100
 var direction = "South"
 var action = "Idle"
-
-
-func get_input():
-	pass
 	
 	
 func die():
@@ -31,8 +27,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	setDirectionInRelationToMouse()
-	get_input()
+	# setDirectionInRelationToMouse()
 	Animator.changeAnimation(action, direction)
 	move_and_slide()
 

@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://c744yhs0sc83a"]
+
+[ext_resource type="Texture2D" uid="uid://chpswep6djd01" path="res://LevelUI/LifeBar.png" id="1_sikq1"]
+[ext_resource type="FontFile" uid="uid://rx80chcdgq1h" path="res://Fonts/SilomBol.ttf" id="2_5a1eg"]
+
+[node name="LifeCounter" type="NinePatchRect"]
+offset_left = 29.0
+offset_right = 69.0
+offset_bottom = 40.0
+scale = Vector2(6.84, 2.72)
+texture = ExtResource("1_sikq1")
+
+[node name="LifeBar" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LifeVal" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.47369
+offset_top = -11.1765
+offset_right = 35.5263
+offset_bottom = 20.8235
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.232372, 0.550481)
+theme_override_fonts/font = ExtResource("2_5a1eg")
+theme_override_font_sizes/font_size = 28
+text = "100"

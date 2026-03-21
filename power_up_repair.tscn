@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuyvqc6jiiduc"]
+
+[ext_resource type="PackedScene" uid="uid://btxpcomxrul61" path="res://PowerUps.tscn" id="1_b7j5a"]
+[ext_resource type="Script" uid="uid://3kb0sjvxmsno" path="res://power_up.gd" id="2_7o2tb"]
+
+[node name="PowerUps" instance=ExtResource("1_b7j5a")]
+script = ExtResource("2_7o2tb")
+
+[node name="Kamikaze" parent="Repair" index="2"]
+unique_name_in_owner = false

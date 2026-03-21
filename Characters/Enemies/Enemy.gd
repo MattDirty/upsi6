@@ -2,10 +2,9 @@ class_name Enemy extends CharacterBody2D
 
 @export var word: String = "enemy"
 var typed: String = ""
-@export var speed: int = 1
+@export var speed: int = 10
 var damages: int = 1
 @onready var label: Label = $"Label"
-@onready var PlayerInstance := $"%Player"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,7 +32,7 @@ func _input(event: InputEvent) -> void:
 		queue_free()
 	pass
 
-func creep_towards_player(player_position: Vector2, delta: float):
+func creep_towards_vector2(player_position: Vector2, delta: float):
 	var direction = (player_position - position).normalized()
 	velocity = direction * speed
 	move_and_slide()
@@ -42,7 +41,7 @@ func creep_towards_player(player_position: Vector2, delta: float):
 func _process(_delta):
 	var direction = Orientation.get_direction_from_angle(velocity.angle())
 
-	creep_towards_player(PlayerInstance.position, _delta)
+	creep_towards_vector2(Manager.PlayerInstance.position, _delta)
 
 	var action = "Idle"
 	if velocity.length() > 0:

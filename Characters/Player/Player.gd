@@ -10,10 +10,11 @@ var action = "Idle"
 
 func get_input():
 	pass
-	
+
 
 func _ready():
 	Animator.changeAnimation(action, direction)
+	Manager.PlayerInstance = self
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

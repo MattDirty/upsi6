@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://dqwomwcwnjyrr"]
 
 [ext_resource type="SpriteFrames" uid="uid://tou3q510o7gi" path="res://Characters/Player/Frames/Knight.tres" id="1_m3jou"]
-[ext_resource type="Script" uid="uid://bn17tiv0bontm" path="res://Characters/Player/Player.gd" id="1_mdy0c"]
+[ext_resource type="Script" uid="uid://b7sav0hm61fgk" path="res://Characters/Player/Player.gd" id="1_mdy0c"]
 [ext_resource type="PackedScene" uid="uid://cglgd13076bip" path="res://Characters/CharacterAnimator.tscn" id="2_2fedm"]
-[ext_resource type="Theme" uid="uid://bb5e7ts486nsv" path="res://Characters/Player/Player.tres" id="5_8u6uf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_au0si"]
 size = Vector2(8, 16)
@@ -22,11 +21,3 @@ zoom = Vector2(2.775, 2.775)
 [node name="CharacterAnimator" parent="." unique_id=1496175084 instance=ExtResource("2_2fedm")]
 sprite_frames = ExtResource("1_m3jou")
 animation = &"IdleSouth"
-
-[node name="CooldownBar" type="ProgressBar" parent="." unique_id=1172325274]
-offset_left = -8.0
-offset_top = 11.0
-offset_right = 8.0
-offset_bottom = 15.0
-theme = ExtResource("5_8u6uf")
-show_percentage = false

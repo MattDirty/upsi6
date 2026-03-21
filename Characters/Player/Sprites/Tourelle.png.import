@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djylj5qpyfjgr"
-path="res://.godot/imported/Fight.png-e09054ccd998db1c0f6a577b4ddeef3b.ctex"
+uid="uid://biw0qc7ulus74"
+path="res://.godot/imported/Tourelle.png-95bf31e64b294cc957f0fcf110004c03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/Fight.png"
-dest_files=["res://.godot/imported/Fight.png-e09054ccd998db1c0f6a577b4ddeef3b.ctex"]
+source_file="res://Characters/Player/Sprites/Tourelle.png"
+dest_files=["res://.godot/imported/Tourelle.png-95bf31e64b294cc957f0fcf110004c03.ctex"]
 
 [params]
 

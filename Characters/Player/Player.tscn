@@ -81,7 +81,7 @@ zoom = Vector2(2.775, 2.775)
 sprite_frames = ExtResource("1_m3jou")
 animation = &"IdleSouth"
 
-[node name="Directions" type="Node2D" parent="." unique_id=1911983107]
+[node name="Directions" type="Node" parent="." unique_id=1687073154]
 
 [node name="N" type="Node2D" parent="Directions" unique_id=1133041585]
 position = Vector2(0, -110)
@@ -106,7 +106,7 @@ uppercase = true
 
 [node name="S" type="Node2D" parent="Directions" unique_id=590268718]
 position = Vector2(0, 110)
-rotation = -3.1415927
+rotation = 3.1415925
 
 [node name="Label" type="Label" parent="Directions/S" unique_id=566853065]
 anchors_preset = 8
@@ -173,6 +173,7 @@ uppercase = true
 [node name="NW" type="Node2D" parent="Directions" unique_id=1559914836]
 position = Vector2(-180, -89)
 rotation = -0.7853982
+scale = Vector2(0.99999994, 0.99999994)
 
 [node name="Label" type="Label" parent="Directions/NW" unique_id=177815761]
 anchors_preset = 8
@@ -195,6 +196,7 @@ uppercase = true
 [node name="NE" type="Node2D" parent="Directions" unique_id=2043832462]
 position = Vector2(180, -89)
 rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
 
 [node name="Label" type="Label" parent="Directions/NE" unique_id=185705859]
 anchors_preset = 8
@@ -240,6 +242,7 @@ uppercase = true
 [node name="SW" type="Node2D" parent="Directions" unique_id=2025438998]
 position = Vector2(-180, 89)
 rotation = -2.3561945
+scale = Vector2(0.99999994, 0.99999994)
 
 [node name="Label" type="Label" parent="Directions/SW" unique_id=2025257476]
 anchors_preset = 8

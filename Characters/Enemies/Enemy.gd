@@ -22,7 +22,8 @@ func die():
 func _input(event: InputEvent) -> void:
 	if event is not InputEventKey or not event.pressed:
 		return
-	
+	if event.is_shift_pressed():
+		return
 	var key = OS.get_keycode_string(event.keycode)
 	if key.length() != 1:
 		return

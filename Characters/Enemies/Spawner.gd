@@ -58,15 +58,17 @@ func _process(delta):
 
 
 func spawnCharacter():
-		var spawn_position = Vector2(randf_range(min_distance, max_distance), 0).rotated(randf() * 2.0 * PI)
-		var new_character = character.instantiate()
-		new_character.name = container_name + "_unit" + str(total_spawned)
-		new_character.position = spawn_position + PlayerInstance.position
-		var random_n: int = randi() % ENEMY_TEXTURES.size()
-		var tex = ENEMY_TEXTURES[random_n]                  
+	if Manager.PlayerInstance == null:
+		return
+	var spawn_position = Vector2(randf_range(min_distance, max_distance), 0).rotated(randf() * 2.0 * PI)
+	var new_character = character.instantiate()
+	new_character.name = container_name + "_unit" + str(total_spawned)
+	new_character.position = spawn_position + PlayerInstance.position
+	var random_n: int = randi() % ENEMY_TEXTURES.size()
+	var tex = ENEMY_TEXTURES[random_n]                  
 
-		container.add_child(new_character)
-		var enemy_sprite = new_character.get_node("EnemySprite")
-		enemy_sprite.scale = Vector2(0.2, 0.2)  
-		print("tex: ", tex)  
-		enemy_sprite.texture = tex
+	container.add_child(new_character)
+	var enemy_sprite = new_character.get_node("EnemySprite")
+	enemy_sprite.scale = Vector2(0.2, 0.2)  
+	print("tex: ", tex)  
+	enemy_sprite.texture = tex

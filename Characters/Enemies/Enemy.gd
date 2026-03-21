@@ -40,16 +40,11 @@ func _input(event: InputEvent) -> void:
 
 func creep_towards_vector2(target: Vector2, delta: float):
 	var direction = (target - position).normalized()
-	velocity = direction * speed
+	velocity = direction * speed * delta
 	move_and_slide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	var direction = Orientation.get_direction_from_angle(velocity.angle())
 
-	creep_towards_vector2(Manager.PlayerInstance.position, _delta)
-
-	var action = "Idle"
-	if velocity.length() > 0:
-		action = "Move"
-	# Animator.changeAnimation(action, direction)
+	if Manager.PlayerInstance != null:
+		creep_towards_vector2(Manager.PlayerInstance.position, _delta)

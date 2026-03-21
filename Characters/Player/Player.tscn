@@ -3,6 +3,7 @@
 [ext_resource type="SpriteFrames" uid="uid://tou3q510o7gi" path="res://Characters/Player/Frames/Knight.tres" id="1_m3jou"]
 [ext_resource type="Script" uid="uid://b7sav0hm61fgk" path="res://Characters/Player/Player.gd" id="1_mdy0c"]
 [ext_resource type="PackedScene" uid="uid://cglgd13076bip" path="res://Characters/CharacterAnimator.tscn" id="2_2fedm"]
+[ext_resource type="LabelSettings" uid="uid://6ho7k12bl0cd" path="res://Characters/Player/cardinal_label_settings.tres" id="4_aj84o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_au0si"]
 size = Vector2(8, 16)
@@ -21,3 +22,181 @@ zoom = Vector2(2.775, 2.775)
 [node name="CharacterAnimator" parent="." unique_id=1496175084 instance=ExtResource("2_2fedm")]
 sprite_frames = ExtResource("1_m3jou")
 animation = &"IdleSouth"
+
+[node name="Directions" type="Node2D" parent="." unique_id=1911983107]
+
+[node name="N" type="Node2D" parent="Directions" unique_id=1133041585]
+position = Vector2(0, -110)
+
+[node name="Label" type="Label" parent="Directions/N" unique_id=766963569]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -11.5
+offset_right = 28.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "North"
+label_settings = ExtResource("4_aj84o")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="S" type="Node2D" parent="Directions" unique_id=590268718]
+position = Vector2(0, 110)
+rotation = -3.1415927
+
+[node name="Label" type="Label" parent="Directions/S" unique_id=566853065]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -11.5
+offset_right = 28.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "South"
+label_settings = ExtResource("4_aj84o")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="E" type="Node2D" parent="Directions" unique_id=309502567]
+position = Vector2(201, 0)
+rotation = 1.5707964
+
+[node name="Label" type="Label" parent="Directions/E" unique_id=1704244798]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -11.5
+offset_right = 28.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "East"
+label_settings = ExtResource("4_aj84o")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="W" type="Node2D" parent="Directions" unique_id=119838777]
+position = Vector2(-200, 0)
+rotation = -1.5707964
+
+[node name="Label" type="Label" parent="Directions/W" unique_id=513345912]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -11.5
+offset_right = 28.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "West"
+label_settings = ExtResource("4_aj84o")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="NW" type="Node2D" parent="Directions" unique_id=1559914836]
+position = Vector2(-180, -89)
+rotation = -0.7853982
+
+[node name="Label" type="Label" parent="Directions/NW" unique_id=177815761]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -11.5
+offset_right = 28.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "NorthWest"
+label_settings = ExtResource("4_aj84o")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="NE" type="Node2D" parent="Directions" unique_id=2043832462]
+position = Vector2(180, -89)
+rotation = 0.7853982
+
+[node name="Label" type="Label" parent="Directions/NE" unique_id=185705859]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -11.5
+offset_right = 28.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "NorthEast"
+label_settings = ExtResource("4_aj84o")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="SE" type="Node2D" parent="Directions" unique_id=2145085294]
+position = Vector2(180, 89)
+rotation = 2.443461
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Label" type="Label" parent="Directions/SE" unique_id=1910510460]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -11.5
+offset_right = 28.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "SouthEast"
+label_settings = ExtResource("4_aj84o")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="SW" type="Node2D" parent="Directions" unique_id=2025438998]
+position = Vector2(-180, 89)
+rotation = -2.3561945
+
+[node name="Label" type="Label" parent="Directions/SW" unique_id=2025257476]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -11.5
+offset_right = 28.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "SouthWest"
+label_settings = ExtResource("4_aj84o")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

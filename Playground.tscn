@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://g7q2urmv8so8" path="res://Characters/Enemies/Spawner.gd" id="3_p5by6"]
 [ext_resource type="PackedScene" uid="uid://ddd3vqedpobcw" path="res://Characters/Enemies/Basic/Basic.tscn" id="4_8c3qm"]
 [ext_resource type="Texture2D" uid="uid://77b4y1wh0mlh" path="res://MainMenu/Background.png" id="5_threo"]
+[ext_resource type="PackedScene" uid="uid://c58eji4j8i5nu" path="res://GUI.tscn" id="6_s2wwn"]
 
 [node name="Playground" type="Node2D" unique_id=714838528]
 
@@ -23,6 +24,9 @@ max_distance = 250.0
 container_name = "Basic"
 
 [node name="Background" type="Sprite2D" parent="." unique_id=514864816]
+visible = false
 position = Vector2(1.9073486e-06, 0)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("5_threo")
+
+[node name="GUI" parent="." unique_id=1055859121 instance=ExtResource("6_s2wwn")]

@@ -27,9 +27,9 @@ func die():
 
 func affect_health(amount: int):
 	health += amount
-	print(health)
 	if health <= 0:
 		die()
+	Manager.GUIInstance.update_health(health)
 
 
 func updateDirection(directionNode: Node2D):

@@ -32,8 +32,8 @@ func _input(event: InputEvent) -> void:
 		queue_free()
 	pass
 
-func creep_towards_vector2(player_position: Vector2, delta: float):
-	var direction = (player_position - position).normalized()
+func creep_towards_vector2(target: Vector2, delta: float):
+	var direction = (target - position).normalized()
 	velocity = direction * speed
 	move_and_slide()
 

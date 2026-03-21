@@ -10,6 +10,18 @@ var action = "Idle"
 
 func get_input():
 	pass
+	
+	
+func die():
+	print('player dead')
+	queue_free()
+	
+
+func affect_health(amount: int):
+	health += amount
+	print(health)
+	if health <= 0:
+		die()
 
 
 func _ready():

@@ -53,6 +53,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=330563669]
 z_index = 42
+rotation = -1.5707964
 script = ExtResource("1_mdy0c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2089487491]
@@ -61,6 +62,13 @@ shape = SubResource("RectangleShape2D_au0si")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2088796663]
 zoom = Vector2(2.775, 2.775)
+
+[node name="TankSprite" type="AnimatedSprite2D" parent="." unique_id=307986981]
+unique_name_in_owner = true
+rotation = 1.5707964
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_74fb0")
+animation = &"idle"
 
 [node name="Directions" type="Node" parent="." unique_id=1687073154]
 
@@ -242,15 +250,6 @@ label_settings = ExtResource("4_aj84o")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
-
-[node name="Tank" type="CharacterBody2D" parent="." unique_id=488524529]
-unique_name_in_owner = true
-
-[node name="TankSprite" type="AnimatedSprite2D" parent="Tank" unique_id=307986981]
-unique_name_in_owner = true
-scale = Vector2(0.1, 0.1)
-sprite_frames = SubResource("SpriteFrames_74fb0")
-animation = &"idle"
 
 [node name="Tourelle" type="CharacterBody2D" parent="." unique_id=531706472]
 

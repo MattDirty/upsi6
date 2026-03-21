@@ -1,7 +1,6 @@
 extends Enemy
 
 
-
 func die():
 	Manager.dollurz += value
 	queue_free()

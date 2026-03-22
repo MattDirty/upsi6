@@ -200,6 +200,10 @@ func spawnCharacter():
 	enemy_sprite.scale = Vector2(0.1, 0.1)  
 	enemy_sprite.sprite_frames = sf
 	enemy_sprite.play("idle")
+	
+	var die_player = new_character.get_node("DieSound")
+	die_player.stream = ENEMIES[enemy_type]["die_sound"]
+	
 	if ENEMIES[enemy_type]["move_sound"] != null:
 		var move_player = new_character.get_node("MoveSound")
 		move_player.stream = ENEMIES[enemy_type]["move_sound"]
@@ -207,5 +211,3 @@ func spawnCharacter():
 		#move_player.finished.connect(func(): move_player.play())
 		if is_instance_valid(move_player):  
 			move_player.play()
-	var die_player = new_character.get_node("DieSound")
-	die_player.stream = ENEMIES[enemy_type]["die_sound"]

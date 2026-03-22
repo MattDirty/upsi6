@@ -193,5 +193,6 @@ func spawnCharacter():
 	if ENEMIES[enemy_type]["move_sound"] != null:
 		var move_player = new_character.get_node("MoveSound")
 		move_player.stream = ENEMIES[enemy_type]["move_sound"]
+		await get_tree().create_timer(3).timeout
 		#move_player.finished.connect(func(): move_player.play())
 		move_player.play()

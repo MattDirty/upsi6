@@ -29,6 +29,7 @@ const ENEMIES = {
 		"fps": 8,
 		"loop": true,
 		"speed": 15,
+		"move_sound": null,
 		# ici je pourrais peut-être gérer leur pouvoir (pour ceux qui en auraient)
 	},
 	"comet2": {
@@ -38,6 +39,7 @@ const ENEMIES = {
 		"fps": 8,
 		"loop": true,
 		"speed": 10,
+		"move_sound": null,
 	},
 	"comet3": {
 		"frames": [
@@ -46,6 +48,7 @@ const ENEMIES = {
 		"fps": 8,
 		"loop": true,
 		"speed": 30,
+		"move_sound": null,
 	},
 	"comet4": {
 		"frames": [
@@ -54,6 +57,7 @@ const ENEMIES = {
 		"fps": 8,
 		"loop": true,
 		"speed": 25,
+		"move_sound": null,
 	},
 	"comet5": {
 		"frames": [
@@ -62,6 +66,7 @@ const ENEMIES = {
 		"fps": 8,
 		"loop": true,
 		"speed": 5,
+		"move_sound": null,
 	},
 	"comet6": {
 		"frames": [
@@ -70,6 +75,7 @@ const ENEMIES = {
 		"fps": 8,
 		"loop": true,
 		"speed": 10,
+		"move_sound": null,
 	},
 	"comet7": {
 		"frames": [
@@ -78,6 +84,7 @@ const ENEMIES = {
 		"fps": 8,
 		"loop": true,
 		"speed": 20,
+		"move_sound": null,
 	},
 	"alieng": {
 		"frames": [
@@ -90,6 +97,7 @@ const ENEMIES = {
 		"loop": true,
 		"speed": 10,
 		"scale":.1,
+		"move_sound": preload("res://SFX/Enemies/Green/move.mp3"),
 	},
 	"alienr": {
 		"frames": [
@@ -102,6 +110,7 @@ const ENEMIES = {
 		"loop": true,
 		"speed": 2,
 		"scale":.1,
+		"move_sound": preload("res://SFX/Enemies/Green/move.mp3"),
 	},
 }
 var ENEMY_TYPES = ENEMIES.keys()
@@ -181,3 +190,8 @@ func spawnCharacter():
 	enemy_sprite.scale = Vector2(0.1, 0.1)  
 	enemy_sprite.sprite_frames = sf
 	enemy_sprite.play("idle")
+	if ENEMIES[enemy_type]["move_sound"] != null:
+		var move_player = new_character.get_node("MoveSound")
+		move_player.stream = ENEMIES[enemy_type]["move_sound"]
+		#move_player.finished.connect(func(): move_player.play())
+		move_player.play()

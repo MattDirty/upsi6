@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://butfbbiwvj4q"
-path="res://.godot/imported/cling.wav-227b79ade5e2199ac0680bc9421999e6.sample"
+uid="uid://dinr1k8vp11ye"
+path="res://.godot/imported/click 2.wav-d4b8922378d0d00765ddbac23e043368.sample"
 
 [deps]
 
-source_file="res://SFX/cling.wav"
-dest_files=["res://.godot/imported/cling.wav-227b79ade5e2199ac0680bc9421999e6.sample"]
+source_file="res://SFX/Menu/click 2.wav"
+dest_files=["res://.godot/imported/click 2.wav-d4b8922378d0d00765ddbac23e043368.sample"]
 
 [params]
 

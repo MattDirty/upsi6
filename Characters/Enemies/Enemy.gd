@@ -7,6 +7,7 @@ var speed: int = 10 # j'essaye de le definir dans le spawner
 @export var damages: int = 1
 @export var value: int = 1
 @onready var label: Label = $"Label"
+var move_sound: AudioStream # pour donner des sons spécifiques aux différents ennemis
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

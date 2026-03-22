@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cgnl8pi2wcwox"
-path="res://.godot/imported/fiufiu.wav-736e1b2ce757196ea2d2f53f6e8fcce3.sample"
+path="res://.godot/imported/fiufiu.wav-dd003ee6b12054fdd08b9b3ed88ea95d.sample"
 
 [deps]
 
-source_file="res://SFX/fiufiu.wav"
-dest_files=["res://.godot/imported/fiufiu.wav-736e1b2ce757196ea2d2f53f6e8fcce3.sample"]
+source_file="res://SFX/Menu/fiufiu.wav"
+dest_files=["res://.godot/imported/fiufiu.wav-dd003ee6b12054fdd08b9b3ed88ea95d.sample"]
 
 [params]
 

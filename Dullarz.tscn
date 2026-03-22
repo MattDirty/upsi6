@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cyic84h6muaww"]
+
+[ext_resource type="Texture2D" uid="uid://cw0nv8ykcfjll" path="res://LevelUI/Currency.png" id="1_tp3wc"]
+
+[node name="Dullarz" type="Sprite2D" unique_id=884229392]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_tp3wc")

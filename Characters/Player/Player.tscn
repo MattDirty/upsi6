@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b7sav0hm61fgk" path="res://Characters/Player/Player.gd" id="1_mdy0c"]
 [ext_resource type="LabelSettings" uid="uid://6ho7k12bl0cd" path="res://Characters/Player/cardinal_label_settings.tres" id="4_aj84o"]
-[ext_resource type="Texture2D" uid="uid://biw0qc7ulus74" path="res://Characters/Player/Sprites/Tourelle.png" id="5_oc658"]
 [ext_resource type="Texture2D" uid="uid://ulc1gs22srju" path="res://Characters/Player/Frames/Ship/Bold/Player_Inf_R1.png" id="8_wraqo"]
 [ext_resource type="Texture2D" uid="uid://c0by08sgybru0" path="res://Characters/Player/Frames/Ship/Bold/Player_Inf_L1.png" id="9_0ij6m"]
 [ext_resource type="Texture2D" uid="uid://cpcoym0y2mqus" path="res://Characters/Player/Frames/Ship/Bold/Player_Inf_L2 (2).png" id="10_2xv0b"]
@@ -248,13 +247,6 @@ unique_name_in_owner = true
 
 [node name="TankSprite" type="AnimatedSprite2D" parent="Tank" unique_id=307986981]
 unique_name_in_owner = true
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_74fb0")
 animation = &"idle"
-
-[node name="Tourelle" type="CharacterBody2D" parent="." unique_id=531706472]
-
-[node name="TourelleSprite" type="Sprite2D" parent="Tourelle" unique_id=517331446]
-unique_name_in_owner = true
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("5_oc658")

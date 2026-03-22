@@ -68,7 +68,7 @@ func spawnCharacter():
 	var tex = ENEMY_TEXTURES[random_n]                  
 
 	container.add_child(new_character)
-	var enemy_sprite = new_character.get_node("EnemySprite")
-	enemy_sprite.scale = Vector2(0.2, 0.2)  
+	var enemy_sprite = new_character.get_node("EnemyAnim/EnemySprite")
+	enemy_sprite.scale = Vector2(0.5, 0.5)  
 	print("tex: ", tex)  
 	enemy_sprite.texture = tex

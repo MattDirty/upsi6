@@ -1,8 +1,45 @@
 [gd_scene format=3 uid="uid://ddd3vqedpobcw"]
 
 [ext_resource type="Script" uid="uid://cqyv4seiacuvy" path="res://Characters/Enemies/Basic/Basic.gd" id="1_d1vwe"]
+[ext_resource type="Texture2D" uid="uid://bsbpxqdhheif7" path="res://Anim/Explosion/Exp1.png" id="2_c3gvw"]
+[ext_resource type="Texture2D" uid="uid://tcgthuip71k4" path="res://Anim/Explosion/Exp2.png" id="3_rp3m8"]
+[ext_resource type="Texture2D" uid="uid://cj04miulaw7fi" path="res://Anim/Explosion/Exp3.png" id="4_f53tf"]
+[ext_resource type="Texture2D" uid="uid://dahnrkq5w6fmv" path="res://Anim/Explosion/Exp4.png" id="5_inka4"]
+[ext_resource type="Texture2D" uid="uid://yuyqy6jteo7a" path="res://Anim/Explosion/Exp5.png" id="6_gidds"]
+[ext_resource type="Texture2D" uid="uid://b6mf0okm10qk7" path="res://Anim/Explosion/Exp6.png" id="7_rp3m8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujrr4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c3gvw"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c3gvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rp3m8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f53tf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_inka4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gidds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rp3m8")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 10.0
+}]
 
 [node name="Basic" type="CharacterBody2D" unique_id=1191685936]
 collision_layer = 0
@@ -11,6 +48,15 @@ script = ExtResource("1_d1vwe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=870842199]
 shape = SubResource("RectangleShape2D_ujrr4")
+
+[node name="EnemyAnim" type="AnimatedSprite2D" parent="." unique_id=884209684]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_c3gvw")
+animation = &"explosion"
+frame = 5
+frame_progress = 1.0
+
+[node name="EnemySprite" type="Sprite2D" parent="EnemyAnim" unique_id=1198339185]
 
 [node name="Label" type="Label" parent="." unique_id=568343073]
 anchors_preset = 8
@@ -24,12 +70,11 @@ offset_right = 86.0
 offset_bottom = -1.2830372
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 12
 text = "here"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
-
-[node name="EnemySprite" type="Sprite2D" parent="." unique_id=929082245]
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1326424852]
 

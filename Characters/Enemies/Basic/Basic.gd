@@ -4,6 +4,10 @@ extends Enemy
 
 func die():
 	Manager.dollurz += value
+	print("the enemi died")
+	$EnemyAnim.play("explosion")
+	$EnemyAnim/EnemySprite.visible = false
+	await $EnemyAnim.animation_finished
 	queue_free()
 
 

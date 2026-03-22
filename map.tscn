@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dauyi06mvc3af"]
+[gd_scene format=3 uid="uid://dauyi06mvc3af"]
 
 [ext_resource type="Texture2D" uid="uid://bwq6llvk4lohw" path="res://Map/MapBG.png" id="1_e0an3"]
 [ext_resource type="Texture2D" uid="uid://cmbdak4rrwvsx" path="res://Map/Fight (3).png" id="2_05x41"]

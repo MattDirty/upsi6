@@ -22,7 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 WordsList="*uid://dt5ec8lttm32u"
-Manager="*uid://dspar06mxc6u6"
+Manager="*uid://dqn7noqyx2hid"
 
 [display]
 

@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dspar06mxc6u6"]
+[gd_scene format=3 uid="uid://dqn7noqyx2hid"]
 
-[ext_resource type="Script" path="res://Systems/Manager.gd" id="1_1ndku"]
+[ext_resource type="Script" uid="uid://ccoq7yvnuhaug" path="res://Systems/Manager.gd" id="1_1ndku"]
 
 [node name="Manager" type="Node" unique_id=1045728384]
 script = ExtResource("1_1ndku")

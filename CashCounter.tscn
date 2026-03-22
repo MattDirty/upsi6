@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfrec1pm1pgt1"]
+[gd_scene format=3 uid="uid://bfrec1pm1pgt1"]
 
 [ext_resource type="Texture2D" uid="uid://pss63x4s21lx" path="res://LevelUI/MoneyBar.png" id="1_qr7vd"]
 [ext_resource type="FontFile" uid="uid://rx80chcdgq1h" path="res://Fonts/SilomBol.ttf" id="2_4k6bp"]

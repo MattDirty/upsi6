@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://btxpcomxrul61"]
+[gd_scene format=3 uid="uid://btxpcomxrul61"]
 
 [ext_resource type="FontFile" uid="uid://rx80chcdgq1h" path="res://Fonts/SilomBol.ttf" id="1_7fayt"]
 [ext_resource type="Script" uid="uid://d1co0caoowwb4" path="res://power_ups.gd" id="1_aqlx0"]

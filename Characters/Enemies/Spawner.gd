@@ -19,20 +19,92 @@ var dir := DirAccess.open(dir_name)
 var file_names := dir.get_files()
 var tex = ImageTexture.new()
 var img = Image
-const ENEMY_TEXTURES = [
-	preload("res://Characters/Enemies/Meteorite/Comet03.png"),
-	preload("res://Characters/Enemies/Meteorite/Comet04.png"),
-	preload("res://Characters/Enemies/Meteorite/Comet05.png"),
-	preload("res://Characters/Enemies/Meteorite/Comet06.png"),
-	preload("res://Characters/Enemies/Meteorite/Comet07.png"),
-	preload("res://Characters/Enemies/Meteorite/Comet08.png"),
-	preload("res://Characters/Enemies/Meteorite/Comet09.png"),
-	preload("res://Characters/Enemies/Meteorite/Comet10.png"),
-	preload("res://Characters/Enemies/Meteorite/Comet11.png"),
-	preload("res://Characters/Enemies/Meteorite/Comet12.png"),
-	preload("res://Characters/Enemies/Meteorite/Comet13.png"),
-	preload("res://Characters/Enemies/Meteorite/Comet14.png"),
-]
+
+# !!!! MATT -- Je te laisserai ranger ça où c'est plus approprié
+const ENEMIES = {
+	"comet1": {
+		"frames": [
+			preload("res://Characters/Enemies/Meteorite/Comet5.png"),
+		],
+		"fps": 8,
+		"loop": true,
+		"speed": 15,
+		# ici je pourrais peut-être gérer leur pouvoir (pour ceux qui en auraient)
+	},
+	"comet2": {
+		"frames": [
+			preload("res://Characters/Enemies/Meteorite/Comet6.png"),
+		],
+		"fps": 8,
+		"loop": true,
+		"speed": 10,
+	},
+	"comet3": {
+		"frames": [
+			preload("res://Characters/Enemies/Meteorite/Comet7.png"),
+		],
+		"fps": 8,
+		"loop": true,
+		"speed": 30,
+	},
+	"comet4": {
+		"frames": [
+			preload("res://Characters/Enemies/Meteorite/Comet9.png"),
+		],
+		"fps": 8,
+		"loop": true,
+		"speed": 25,
+	},
+	"comet5": {
+		"frames": [
+			preload("res://Characters/Enemies/Meteorite/Comet10.png"),
+		],
+		"fps": 8,
+		"loop": true,
+		"speed": 5,
+	},
+	"comet6": {
+		"frames": [
+			preload("res://Characters/Enemies/Meteorite/Comet11.png"),
+		],
+		"fps": 8,
+		"loop": true,
+		"speed": 10,
+	},
+	"comet7": {
+		"frames": [
+			preload("res://Characters/Enemies/Meteorite/Comet12.png"),
+		],
+		"fps": 8,
+		"loop": true,
+		"speed": 20,
+	},
+	"alieng": {
+		"frames": [
+			preload("res://Characters/Enemies/Green/Green1.png"),
+			preload("res://Characters/Enemies/Green/Green2.png"),
+			preload("res://Characters/Enemies/Green/Green3.png"),
+			preload("res://Characters/Enemies/Green/Green4.png"),
+		],
+		"fps": 15,
+		"loop": true,
+		"speed": 10,
+		"scale":.1,
+	},
+	"alienr": {
+		"frames": [
+			preload("res://Characters/Enemies/Red/Red1.png"),
+			preload("res://Characters/Enemies/Red/Red2.png"),
+			preload("res://Characters/Enemies/Red/Red3.png"),
+			preload("res://Characters/Enemies/Red/Red4.png"),
+		],
+		"fps": 15,
+		"loop": true,
+		"speed": 2,
+		"scale":.1,
+	},
+}
+var ENEMY_TYPES = ENEMIES.keys()
 
 @onready var PlayerInstance := $"%Player"
 
@@ -57,6 +129,40 @@ func _process(delta):
 		time_since_last_spawn = 0
 
 
+func createCharacterAnim():
+	var sprite_frames = SpriteFrames.new()
+	sprite_frames.add_animation("explosion")
+	for i in range(1, 5):  
+		var texture = load("res://frames/explosion_%d.png" % i)
+		sprite_frames.add_frame("explosion", texture)
+
+	sprite_frames.set_animation_speed("explosion", 15) 
+	sprite_frames.set_animation_loop("explosion", false) 
+
+	$AnimatedSprite2D.sprite_frames = sprite_frames
+	$AnimatedSprite2D.play("explosion")
+
+
+func build_sprite_frames(enemy_key: String, base_sf: SpriteFrames) -> SpriteFrames:
+	var enemy_type = ENEMIES[enemy_key]
+	
+	var sf = base_sf.duplicate(true)  # comme l'exploision est là pour tout le monde on part de là
+	if not sf.has_animation("idle"):
+		sf.add_animation("idle")
+	else:
+		sf.clear("idle") 
+	
+	for frame in enemy_type["frames"]:
+		sf.add_frame("idle", frame)
+	sf.set_animation_speed("idle", enemy_type["fps"])
+	sf.set_animation_loop("idle", enemy_type["loop"])
+	return sf
+
+func select_random_type():
+	var rando: int = randi() % ENEMY_TYPES.size()
+	var enemy_type = ENEMY_TYPES[rando]
+	return enemy_type
+
 func spawnCharacter():
 	if Manager.PlayerInstance == null:
 		return
@@ -64,11 +170,14 @@ func spawnCharacter():
 	var new_character = character.instantiate()
 	new_character.name = container_name + "_unit" + str(total_spawned)
 	new_character.position = spawn_position + PlayerInstance.position
-	var random_n: int = randi() % ENEMY_TEXTURES.size()
-	tex = ENEMY_TEXTURES[random_n]                  
-
+	
+	# new section to manage enemy types avec anim
 	container.add_child(new_character)
-	var enemy_sprite = new_character.get_node("EnemyAnim/EnemySprite")
-	enemy_sprite.scale = Vector2(0.5, 0.5)  
-	print("tex: ", tex)  
-	enemy_sprite.texture = tex
+	var enemy_sprite = new_character.get_node("EnemyAnim")
+	var enemy_type = select_random_type()
+	#new_character.speed = ENEMIES[enemy_type]["speed"]
+	new_character.set("speed",ENEMIES[enemy_type]["speed"])
+	var sf = build_sprite_frames(enemy_type, enemy_sprite.sprite_frames)
+	enemy_sprite.scale = Vector2(0.1, 0.1)  
+	enemy_sprite.sprite_frames = sf
+	enemy_sprite.play("idle")

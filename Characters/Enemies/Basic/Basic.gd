@@ -4,8 +4,11 @@ extends Enemy
 func die():
 	Manager.dollurz += value
 	print("the enemi died")
+	print("animations available: ", $EnemyAnim.sprite_frames.get_animation_names())
+	print("explosion frame count: ", $EnemyAnim.sprite_frames.get_frame_count("explosion"))
+	
 	$EnemyAnim.play("explosion")
-	$EnemyAnim/EnemySprite.visible = false
+	#$EnemyAnim/EnemySprite.visible = false
 	await $EnemyAnim.animation_finished
 	queue_free()
 

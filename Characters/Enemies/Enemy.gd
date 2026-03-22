@@ -2,7 +2,8 @@ class_name Enemy extends CharacterBody2D
 
 @export var word: String = "enemy"
 var typed: String = ""
-@export var speed: int = 10
+var speed: int = 10 # j'essaye de le definir dans le spawner
+#@export var speed: int = 10
 @export var damages: int = 1
 @export var value: int = 1
 @onready var label: Label = $"Label"
@@ -42,6 +43,7 @@ func _input(event: InputEvent) -> void:
 func creep_towards_vector2(target: Vector2, delta: float):
 	var direction = (target - position).normalized()
 	velocity = direction * speed * delta * 300
+	$EnemyAnim.rotation = direction.angle() + PI/2 
 	move_and_slide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

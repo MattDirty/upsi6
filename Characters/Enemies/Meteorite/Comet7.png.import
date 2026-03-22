@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ys10mh43u6xu"
-path="res://.godot/imported/Comet09.png-86be8329cb7a6d0bc2be9e2ad307ee64.ctex"
+uid="uid://c81nhewlg12nr"
+path="res://.godot/imported/Comet7.png-139db74aea74b6b271bacc3a939f40bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Enemies/Meteorite/Comet09.png"
-dest_files=["res://.godot/imported/Comet09.png-86be8329cb7a6d0bc2be9e2ad307ee64.ctex"]
+source_file="res://Characters/Enemies/Meteorite/Comet7.png"
+dest_files=["res://.godot/imported/Comet7.png-139db74aea74b6b271bacc3a939f40bc.ctex"]
 
 [params]
 

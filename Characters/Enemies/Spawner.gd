@@ -30,6 +30,7 @@ const ENEMIES = {
 		"loop": true,
 		"speed": 15,
 		"move_sound": null,
+		"die_sound": preload("res://SFX/Enemies/explosion3.mp3"),
 		# ici je pourrais peut-être gérer leur pouvoir (pour ceux qui en auraient)
 	},
 	"comet2": {
@@ -40,6 +41,7 @@ const ENEMIES = {
 		"loop": true,
 		"speed": 10,
 		"move_sound": null,
+		"die_sound": preload("res://SFX/Enemies/explosion2.mp3"),
 	},
 	"comet3": {
 		"frames": [
@@ -49,6 +51,7 @@ const ENEMIES = {
 		"loop": true,
 		"speed": 30,
 		"move_sound": null,
+		"die_sound": preload("res://SFX/Enemies/explosion1.wav"),
 	},
 	"comet4": {
 		"frames": [
@@ -58,6 +61,7 @@ const ENEMIES = {
 		"loop": true,
 		"speed": 25,
 		"move_sound": null,
+		"die_sound": preload("res://SFX/Enemies/explosion3.mp3"),
 	},
 	"comet5": {
 		"frames": [
@@ -67,6 +71,7 @@ const ENEMIES = {
 		"loop": true,
 		"speed": 5,
 		"move_sound": null,
+		"die_sound": preload("res://SFX/Enemies/explosion3.mp3"),
 	},
 	"comet6": {
 		"frames": [
@@ -76,6 +81,7 @@ const ENEMIES = {
 		"loop": true,
 		"speed": 10,
 		"move_sound": null,
+		"die_sound": preload("res://SFX/Enemies/explosion3.mp3"),
 	},
 	"comet7": {
 		"frames": [
@@ -85,6 +91,8 @@ const ENEMIES = {
 		"loop": true,
 		"speed": 20,
 		"move_sound": null,
+		"die_sound": preload("res://SFX/Enemies/explosion3.mp3"),
+		
 	},
 	"alieng": {
 		"frames": [
@@ -98,6 +106,7 @@ const ENEMIES = {
 		"speed": 10,
 		"scale":.1,
 		"move_sound": preload("res://SFX/Enemies/Green/move.mp3"),
+		"die_sound": preload("res://SFX/Enemies/alien_die.wav"),
 	},
 	"alienr": {
 		"frames": [
@@ -111,6 +120,7 @@ const ENEMIES = {
 		"speed": 2,
 		"scale":.1,
 		"move_sound": preload("res://SFX/Enemies/Green/move.mp3"),
+		"die_sound": preload("res://SFX/Enemies/alien_die.wav"),
 	},
 }
 var ENEMY_TYPES = ENEMIES.keys()
@@ -193,6 +203,8 @@ func spawnCharacter():
 	if ENEMIES[enemy_type]["move_sound"] != null:
 		var move_player = new_character.get_node("MoveSound")
 		move_player.stream = ENEMIES[enemy_type]["move_sound"]
-		await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(2.5).timeout
 		#move_player.finished.connect(func(): move_player.play())
 		move_player.play()
+	var die_player = new_character.get_node("DieSound")
+	die_player.stream = ENEMIES[enemy_type]["die_sound"]

@@ -9,7 +9,7 @@ func die():
 	if $MoveSound.stream != null:
 		$MoveSound.stop()
 	$EnemyAnim.play("explosion")
-	#$EnemyAnim/EnemySprite.visible = false
+	$DieSound.play()
 	await $EnemyAnim.animation_finished
 	queue_free()
 

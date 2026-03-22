@@ -52,6 +52,7 @@ shape = SubResource("RectangleShape2D_ujrr4")
 [node name="EnemyAnim" type="AnimatedSprite2D" parent="." unique_id=884209684]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_c3gvw")
+animation = &"explosion"
 
 [node name="EnemySprite" type="Sprite2D" parent="EnemyAnim" unique_id=1198339185]
 
@@ -77,6 +78,8 @@ uppercase = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=592049020]
 shape = SubResource("RectangleShape2D_ujrr4")
+
+[node name="DieSound" type="AudioStreamPlayer2D" parent="." unique_id=2076130849]
 
 [node name="MoveSound" type="AudioStreamPlayer2D" parent="." unique_id=763127142]
 

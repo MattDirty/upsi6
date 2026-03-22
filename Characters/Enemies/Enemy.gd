@@ -26,7 +26,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_shift_pressed():
 		return
 	var key = OS.get_keycode_string(event.keycode)
-	if key.length() != 1:
+	if key.length() != 1 or word.length() == 0:
 		return
 	if key.to_lower() == word[0]:
 		typed += key
@@ -37,6 +37,7 @@ func _input(event: InputEvent) -> void:
 		typed = ""
 		label.text = word
 	if (word.length() == 0):
+		$"CollisionShape2D".disabled = true
 		die()
 	pass
 

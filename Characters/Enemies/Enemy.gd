@@ -29,7 +29,7 @@ func _input(event: InputEvent) -> void:
 	var key = OS.get_keycode_string(event.keycode)
 	if key.length() != 1:
 		return
-	if key.to_lower() == word[0]:
+	if word.length() > 0 and key.to_lower() == word[0]:
 		typed += key
 		word = word.substr(1, word.length())
 		label.text = word

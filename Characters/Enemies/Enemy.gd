@@ -8,6 +8,7 @@ var speed: int = 10 # j'essaye de le definir dans le spawner
 @export var value: int = 1
 @onready var label: Label = $"Label"
 var move_sound: AudioStream # pour donner des sons spécifiques aux différents ennemis
+var is_dying: bool = false # pour arrêter le mouvement des enemis quand ils meurent
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +19,8 @@ func _ready():
 
 func die():
 	#overwrite this in child classes for different death behavior
+	is_dying = true # pour arrêter le déplacement avant la fin de l'anim explisoin
+	velocity = Vector2.ZERO
 	queue_free()
 	
 
@@ -49,6 +52,7 @@ func creep_towards_vector2(target: Vector2, delta: float):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-
+	if is_dying: # pour arreter le movement
+		return
 	if Manager.PlayerInstance != null:
 		creep_towards_vector2(Manager.PlayerInstance.position, _delta)

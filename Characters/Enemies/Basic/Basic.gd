@@ -2,10 +2,10 @@ extends Enemy
 
 
 func die():
+	if is_dying: # j'avais des bugs qui rentraient 2 fois dans die
+		return
+	is_dying = true 
 	Manager.dollurz += value
-	print("the enemi died")
-	print("animations available: ", $EnemyAnim.sprite_frames.get_animation_names())
-	print("explosion frame count: ", $EnemyAnim.sprite_frames.get_frame_count("explosion"))
 	if $MoveSound.stream != null:
 		$MoveSound.stop()
 	$EnemyAnim.play("explosion")

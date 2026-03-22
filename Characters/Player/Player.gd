@@ -33,6 +33,8 @@ func affect_health(amount: int):
 
 func get_hit():
 	$TankSprite.play("hit")
+	$HitSound.play()
+	
 
 func updateDirection(directionNode: Node2D):
 	look_at(directionNode.global_position)

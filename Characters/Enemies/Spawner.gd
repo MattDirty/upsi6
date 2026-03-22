@@ -205,6 +205,7 @@ func spawnCharacter():
 		move_player.stream = ENEMIES[enemy_type]["move_sound"]
 		await get_tree().create_timer(2.5).timeout
 		#move_player.finished.connect(func(): move_player.play())
-		move_player.play()
+		if is_instance_valid(move_player):  
+			move_player.play()
 	var die_player = new_character.get_node("DieSound")
 	die_player.stream = ENEMIES[enemy_type]["die_sound"]

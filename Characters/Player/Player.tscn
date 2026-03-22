@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://yh1uyrngp4t6" path="res://Characters/Player/Frames/Ship/Bold/Player_Inf_L2.png" id="11_7jpmk"]
 [ext_resource type="Texture2D" uid="uid://c0nxb2s5xi64w" path="res://Characters/Player/Frames/Ship/Bold/Player_Inf_R2.png" id="12_5xivi"]
 [ext_resource type="Texture2D" uid="uid://dh1bbmofcytwe" path="res://Characters/Player/Frames/Ship/Bold/Player_Inf_R3.png" id="13_k8aph"]
+[ext_resource type="AudioStream" uid="uid://buv3ui8rajqi0" path="res://SFX/Player/impact_shorter.wav" id="15_2xv0b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_au0si"]
 size = Vector2(8, 16)
@@ -278,3 +279,6 @@ label_settings = ExtResource("4_aj84o")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=1863668507]
+stream = ExtResource("15_2xv0b")

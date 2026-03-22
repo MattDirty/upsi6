@@ -13,5 +13,7 @@ func die():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name != "Player":
 		return
+		
+	Manager.PlayerInstance.get_hit()
 	Manager.PlayerInstance.affect_health(-damages)
 	queue_free()

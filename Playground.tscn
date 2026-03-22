@@ -24,7 +24,6 @@ max_distance = 250.0
 container_name = "Basic"
 
 [node name="Background" type="Sprite2D" parent="." unique_id=514864816]
-visible = false
 position = Vector2(1.9073486e-06, 0)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("5_threo")

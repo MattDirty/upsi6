@@ -31,6 +31,8 @@ func affect_health(amount: int):
 		die()
 	Manager.GUIInstance.update_health(health)
 
+func get_hit():
+	$TankSprite.play("hit")
 
 func updateDirection(directionNode: Node2D):
 	look_at(directionNode.global_position)
@@ -38,6 +40,7 @@ func updateDirection(directionNode: Node2D):
 
 func _ready():
 	Manager.PlayerInstance = self
+	$TankSprite.play("idle")
 
 
 func _input(event: InputEvent) -> void:

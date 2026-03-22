@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://dqwomwcwnjyrr"]
 
 [ext_resource type="Script" uid="uid://b7sav0hm61fgk" path="res://Characters/Player/Player.gd" id="1_mdy0c"]
+[ext_resource type="Texture2D" uid="uid://drtnug4is0tnf" path="res://Anim/ShipGetsHit_W/ExpS1.png" id="2_0ij6m"]
+[ext_resource type="Texture2D" uid="uid://d07dxnchwcn1w" path="res://Anim/ShipGetsHit_W/ExpS2.png" id="3_2xv0b"]
+[ext_resource type="Texture2D" uid="uid://dxxanyao6kdro" path="res://Anim/ShipGetsHit_W/ExpS3.png" id="4_7jpmk"]
 [ext_resource type="LabelSettings" uid="uid://6ho7k12bl0cd" path="res://Characters/Player/cardinal_label_settings.tres" id="4_aj84o"]
+[ext_resource type="Texture2D" uid="uid://bm71k0siplcte" path="res://Anim/ShipGetsHit_W/ExpS4.png" id="5_5xivi"]
+[ext_resource type="Texture2D" uid="uid://bmmgex05oa5go" path="res://Anim/ShipGetsHit_W/ExpS5.png" id="6_k8aph"]
+[ext_resource type="Texture2D" uid="uid://cjwl0ri4kxs76" path="res://Anim/ShipGetsHit_W/ExpS6.png" id="7_74fb0"]
 [ext_resource type="Texture2D" uid="uid://ulc1gs22srju" path="res://Characters/Player/Frames/Ship/Bold/Player_Inf_R1.png" id="8_wraqo"]
 [ext_resource type="Texture2D" uid="uid://c0by08sgybru0" path="res://Characters/Player/Frames/Ship/Bold/Player_Inf_L1.png" id="9_0ij6m"]
 [ext_resource type="Texture2D" uid="uid://cpcoym0y2mqus" path="res://Characters/Player/Frames/Ship/Bold/Player_Inf_L2 (2).png" id="10_2xv0b"]
@@ -14,6 +20,29 @@ size = Vector2(8, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_74fb0"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0ij6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2xv0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7jpmk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5xivi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_k8aph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_74fb0")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("8_wraqo")
@@ -65,9 +94,9 @@ zoom = Vector2(2.775, 2.775)
 [node name="TankSprite" type="AnimatedSprite2D" parent="." unique_id=307986981]
 unique_name_in_owner = true
 rotation = 1.5707964
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_74fb0")
-animation = &"idle"
+animation = &"hit"
 
 [node name="Directions" type="Node" parent="." unique_id=1687073154]
 
@@ -249,12 +278,3 @@ label_settings = ExtResource("4_aj84o")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
-
-[node name="Tank" type="CharacterBody2D" parent="." unique_id=488524529]
-unique_name_in_owner = true
-
-[node name="TankSprite" type="AnimatedSprite2D" parent="Tank" unique_id=307986981]
-unique_name_in_owner = true
-scale = Vector2(0.05, 0.05)
-sprite_frames = SubResource("SpriteFrames_74fb0")
-animation = &"idle"

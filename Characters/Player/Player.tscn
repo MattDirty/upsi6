@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://drtnug4is0tnf" path="res://Anim/ShipGetsHit_W/ExpS1.png" id="2_0ij6m"]
 [ext_resource type="Texture2D" uid="uid://d07dxnchwcn1w" path="res://Anim/ShipGetsHit_W/ExpS2.png" id="3_2xv0b"]
 [ext_resource type="Texture2D" uid="uid://dxxanyao6kdro" path="res://Anim/ShipGetsHit_W/ExpS3.png" id="4_7jpmk"]
-[ext_resource type="LabelSettings" uid="uid://6ho7k12bl0cd" path="res://Characters/Player/cardinal_label_settings.tres" id="4_aj84o"]
+[ext_resource type="LabelSettings" path="res://Characters/Player/cardinal_label_settings.tres" id="4_aj84o"]
 [ext_resource type="Texture2D" uid="uid://bm71k0siplcte" path="res://Anim/ShipGetsHit_W/ExpS4.png" id="5_5xivi"]
 [ext_resource type="Texture2D" uid="uid://bmmgex05oa5go" path="res://Anim/ShipGetsHit_W/ExpS5.png" id="6_k8aph"]
 [ext_resource type="Texture2D" uid="uid://cjwl0ri4kxs76" path="res://Anim/ShipGetsHit_W/ExpS6.png" id="7_74fb0"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://yh1uyrngp4t6" path="res://Characters/Player/Frames/Ship/Bold/Player_Inf_L2.png" id="11_7jpmk"]
 [ext_resource type="Texture2D" uid="uid://c0nxb2s5xi64w" path="res://Characters/Player/Frames/Ship/Bold/Player_Inf_R2.png" id="12_5xivi"]
 [ext_resource type="Texture2D" uid="uid://dh1bbmofcytwe" path="res://Characters/Player/Frames/Ship/Bold/Player_Inf_R3.png" id="13_k8aph"]
+[ext_resource type="Script" uid="uid://3bxhw7a4pxep" path="res://Characters/Player/Directions.gd" id="14_7jpmk"]
 [ext_resource type="AudioStream" uid="uid://buv3ui8rajqi0" path="res://SFX/Player/impact_shorter.wav" id="15_2xv0b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_au0si"]
@@ -100,6 +101,7 @@ sprite_frames = SubResource("SpriteFrames_74fb0")
 animation = &"hit"
 
 [node name="Directions" type="Node" parent="." unique_id=1687073154]
+script = ExtResource("14_7jpmk")
 
 [node name="N" type="Node2D" parent="Directions" unique_id=1133041585]
 position = Vector2(0, -110)

@@ -65,7 +65,7 @@ func spawnCharacter():
 	new_character.name = container_name + "_unit" + str(total_spawned)
 	new_character.position = spawn_position + PlayerInstance.position
 	var random_n: int = randi() % ENEMY_TEXTURES.size()
-	var tex = ENEMY_TEXTURES[random_n]                  
+	tex = ENEMY_TEXTURES[random_n]                  
 
 	container.add_child(new_character)
 	var enemy_sprite = new_character.get_node("EnemyAnim/EnemySprite")

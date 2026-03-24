@@ -153,9 +153,11 @@ func _on_level_started(level: Level):
 	lvl = level
 	spawn_rate = level.spawn_rate
 	max_units = level.total_ennemies
+	total_spawned = 0
 	var health_up = PlayerInstance.health
 	health_up += 25
 	PlayerInstance.health = min(100,health_up)
+	print("on level started")
 	level_title.show_title.call_deferred("Level %d" % (LevelManager.current_index + 1))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -166,9 +168,9 @@ func _process(delta):
 			total_spawned += 1
 			spawnCharacter()
 			if max_units > 0 and total_spawned >= max_units:
-				total_spawned = 0
+				print("level complete")
 				LevelManager.level_complete()
-				queue_free()
+				#queue_free()
 				return
 		time_since_last_spawn = 0
 

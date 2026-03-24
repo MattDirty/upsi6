@@ -12,7 +12,7 @@ func generate_levels(count: int) -> void:
 		d.word_min_length = 3          
 		d.word_max_length = 6 + i
 		d.spawn_rate      = max(0.5, 3.0 - i * 0.15)  
-		d.total_ennemies   = 20 + i * 5
+		d.total_ennemies   = 5 + i * 5
 		levels.append(d)
 
 func start_level(index: int) -> void:
@@ -23,8 +23,10 @@ func current_level() -> Level:
 	return levels[current_index]
 
 func level_complete():
+	print("inside level complete")
 	current_index += 1
 	if current_index < levels.size():
+		print("start level %d" % current_index)
 		start_level(current_index)
 	
 	

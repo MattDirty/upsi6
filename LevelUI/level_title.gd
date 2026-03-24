@@ -1,8 +1,12 @@
 extends CanvasLayer
 
 @onready var label: Label = $Title
+var tween : Tween
 
 func show_title(text: String) -> void:
+	if is_instance_valid(tween):
+		tween.kill()
+	
 	label.text = text
 	label.modulate.a = 0
 	label.scale = Vector2(0.6, 0.6)

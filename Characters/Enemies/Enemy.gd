@@ -3,8 +3,9 @@ class_name Enemy extends CharacterBody2D
 @export var word: String = "enemy"
 var typed: String = ""
 var speed: int = 10 # j'essaye de le definir dans le spawner
+var damages: int = 5
 #@export var speed: int = 10
-@export var damages: int = 1
+#@export var damages: int = 1
 @export var value: int = 1
 @onready var label: Label = $"Label"
 var move_sound: AudioStream # pour donner des sons spécifiques aux différents ennemis

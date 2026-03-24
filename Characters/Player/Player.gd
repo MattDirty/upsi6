@@ -34,6 +34,8 @@ func affect_health(amount: int):
 func get_hit():
 	$TankSprite.play("hit")
 	$HitSound.play()
+	await $TankSprite.animation_finished
+	$TankSprite.play("idle")
 	
 
 func updateDirection(directionNode: Node2D):

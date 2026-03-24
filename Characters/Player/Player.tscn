@@ -98,7 +98,7 @@ unique_name_in_owner = true
 rotation = 1.5707964
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_74fb0")
-animation = &"hit"
+animation = &"idle"
 
 [node name="Directions" type="Node" parent="." unique_id=1687073154]
 script = ExtResource("14_7jpmk")

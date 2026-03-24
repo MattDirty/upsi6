@@ -29,6 +29,7 @@ const ENEMIES = {
 		"fps": 8,
 		"loop": true,
 		"speed": 15,
+		"damages": 5,
 		"move_sound": null,
 		"die_sound": preload("res://SFX/Enemies/explosion3.mp3"),
 		# ici je pourrais peut-être gérer leur pouvoir (pour ceux qui en auraient)
@@ -40,6 +41,7 @@ const ENEMIES = {
 		"fps": 8,
 		"loop": true,
 		"speed": 10,
+		"damages": 5,
 		"move_sound": null,
 		"die_sound": preload("res://SFX/Enemies/explosion2.mp3"),
 	},
@@ -50,6 +52,7 @@ const ENEMIES = {
 		"fps": 8,
 		"loop": true,
 		"speed": 30,
+		"damages": 10,
 		"move_sound": null,
 		"die_sound": preload("res://SFX/Enemies/explosion1.wav"),
 	},
@@ -60,6 +63,7 @@ const ENEMIES = {
 		"fps": 8,
 		"loop": true,
 		"speed": 25,
+		"damages": 10,
 		"move_sound": null,
 		"die_sound": preload("res://SFX/Enemies/explosion3.mp3"),
 	},
@@ -70,6 +74,7 @@ const ENEMIES = {
 		"fps": 8,
 		"loop": true,
 		"speed": 5,
+		"damages": 5,
 		"move_sound": null,
 		"die_sound": preload("res://SFX/Enemies/explosion3.mp3"),
 	},
@@ -80,6 +85,7 @@ const ENEMIES = {
 		"fps": 8,
 		"loop": true,
 		"speed": 10,
+		"damages": 5,
 		"move_sound": null,
 		"die_sound": preload("res://SFX/Enemies/explosion3.mp3"),
 	},
@@ -90,6 +96,7 @@ const ENEMIES = {
 		"fps": 8,
 		"loop": true,
 		"speed": 20,
+		"damages": 5,
 		"move_sound": null,
 		"die_sound": preload("res://SFX/Enemies/explosion3.mp3"),
 		
@@ -105,6 +112,7 @@ const ENEMIES = {
 		"loop": true,
 		"speed": 10,
 		"scale":.1,
+		"damages": 15,
 		"move_sound": preload("res://SFX/Enemies/Green/move.mp3"),
 		"die_sound": preload("res://SFX/Enemies/alien_die.wav"),
 	},
@@ -119,6 +127,7 @@ const ENEMIES = {
 		"loop": true,
 		"speed": 2,
 		"scale":.1,
+		"damages": 20,
 		"move_sound": preload("res://SFX/Enemies/Green/move.mp3"),
 		"die_sound": preload("res://SFX/Enemies/alien_die.wav"),
 	},
@@ -196,6 +205,7 @@ func spawnCharacter():
 	var enemy_type = select_random_type()
 	#new_character.speed = ENEMIES[enemy_type]["speed"]
 	new_character.set("speed",ENEMIES[enemy_type]["speed"])
+	new_character.set("damages",ENEMIES[enemy_type]["damages"])
 	var sf = build_sprite_frames(enemy_type, enemy_sprite.sprite_frames)
 	enemy_sprite.scale = Vector2(0.1, 0.1)  
 	enemy_sprite.sprite_frames = sf

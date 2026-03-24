@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dmg6j2rrp2mec"]
+
+[ext_resource type="AudioStream" uid="uid://cd73s8t5ujol6" path="res://Music/everything_is_dead-sci-fi-ambient-dark-ambient-496940.mp3" id="1_yekaa"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" unique_id=1595412562]
+stream = ExtResource("1_yekaa")
+volume_db = -16.714
+autoplay = true

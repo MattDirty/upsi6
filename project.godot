@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 WordsList="*uid://dt5ec8lttm32u"
 Manager="*uid://dqn7noqyx2hid"
+MenuMusic="*uid://dmg6j2rrp2mec"
 
 [display]
 

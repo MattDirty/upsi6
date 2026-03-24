@@ -102,7 +102,7 @@ texture_hover = ExtResource("11_61cf8")
 [node name="Hover" type="AudioStreamPlayer2D" parent="CenterContainer/MainButtons/Buttons" unique_id=244299816]
 unique_name_in_owner = true
 stream = ExtResource("12_m04lp")
-volume_db = 9.665
+volume_db = 17.727
 
 [node name="Click1" type="AudioStreamPlayer2D" parent="CenterContainer/MainButtons/Buttons" unique_id=1475752781]
 unique_name_in_owner = true

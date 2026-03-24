@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfrec1pm1pgt1"]
+[gd_scene format=3 uid="uid://bfrec1pm1pgt1"]
 
 [ext_resource type="Texture2D" uid="uid://pss63x4s21lx" path="res://LevelUI/MoneyBar.png" id="1_qr7vd"]
 [ext_resource type="FontFile" uid="uid://rx80chcdgq1h" path="res://Fonts/SilomBol.ttf" id="2_4k6bp"]
 [ext_resource type="Texture2D" uid="uid://cw0nv8ykcfjll" path="res://LevelUI/Currency.png" id="3_c840y"]
 
-[node name="CashCounter" type="NinePatchRect"]
+[node name="CashCounter" type="NinePatchRect" unique_id=765532746]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -15,7 +15,7 @@ grow_horizontal = 0
 scale = Vector2(6.84, 2.72)
 texture = ExtResource("1_qr7vd")
 
-[node name="CashVal" type="Label" parent="."]
+[node name="CashVal" type="Label" parent="." unique_id=209425406]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -32,9 +32,9 @@ grow_vertical = 2
 scale = Vector2(0.232372, 0.550481)
 theme_override_fonts/font = ExtResource("2_4k6bp")
 theme_override_font_sizes/font_size = 28
-text = "350"
+text = "0"
 
-[node name="CashBar" type="TextureRect" parent="."]
+[node name="CashBar" type="TextureRect" parent="." unique_id=416264173]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0

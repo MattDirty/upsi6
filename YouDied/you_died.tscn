@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://bc3mvdxan2y5u"]
+
+[ext_resource type="Texture2D" uid="uid://77b4y1wh0mlh" path="res://MainMenu/Background.png" id="1_ynkcd"]
+[ext_resource type="Texture2D" uid="uid://6tjyvcnubq5b" path="res://YouDied/YouDied.png" id="2_rkm37"]
+[ext_resource type="Texture2D" uid="uid://cf15sfey6g0ir" path="res://YouDied/Retry_off.png" id="3_hfmub"]
+[ext_resource type="Texture2D" uid="uid://5a85dlbf52a5" path="res://YouDied/Retry.png" id="4_qv4ap"]
+[ext_resource type="Texture2D" uid="uid://dcidcslmpj354" path="res://YouDied/Retry_on.png" id="5_pthnt"]
+[ext_resource type="Texture2D" uid="uid://bi4kr16vimyb1" path="res://YouDied/GiveUp_off.png" id="6_hfmub"]
+[ext_resource type="Texture2D" uid="uid://2ioegri1ktt4" path="res://YouDied/GiveUp (2).png" id="7_qv4ap"]
+[ext_resource type="Texture2D" uid="uid://bxfgm66f7qfg2" path="res://YouDied/GiveUp_on.png" id="8_pthnt"]
+[ext_resource type="AudioStream" uid="uid://crq2x1ejuc2nr" path="res://SFX/Menu/hover.wav" id="9_2cyrx"]
+[ext_resource type="AudioStream" uid="uid://c21cbsxmeyvgq" path="res://SFX/Menu/click1.wav" id="10_itrki"]
+[ext_resource type="AudioStream" uid="uid://dinr1k8vp11ye" path="res://SFX/Menu/click 2.wav" id="11_usw6l"]
+[ext_resource type="AudioStream" uid="uid://br3m5s0bmyeyl" path="res://SFX/Menu/click3.wav" id="12_7r0px"]
+[ext_resource type="AudioStream" uid="uid://bbkfi6rflfgh0" path="res://SFX/Menu/woosh.wav" id="13_l2k64"]
+
+[sub_resource type="GDScript" id="GDScript_qijm3"]
+script/source = "extends Control
+
+func _on_start_mouse_entered() -> void:
+	%Hover.play()
+
+func _on_quit_mouse_entered() -> void:
+	%Hover.play()
+
+
+func _on_start_pressed() -> void:
+	%Click1.play()
+	await get_tree().create_timer(.25).timeout
+	get_tree().change_scene_to_file(\"res://map.tscn\")
+
+
+func _on_quit_pressed() -> void:
+	%Click3.play()
+	await get_tree().create_timer(.25).timeout
+	get_tree().quit()
+"
+
+[node name="Node2D" type="Node2D" unique_id=814336999]
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=766081199]
+position = Vector2(574, 328)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_ynkcd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1764752387]
+position = Vector2(570, 329)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_rkm37")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1871503127]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 230.0
+offset_right = 1200.0
+offset_bottom = 830.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.96, 0.656437)
+
+[node name="MainButtons" type="VBoxContainer" parent="CenterContainer" unique_id=2126210327]
+layout_mode = 2
+
+[node name="Buttons" type="Control" parent="CenterContainer/MainButtons" unique_id=111993685]
+layout_mode = 2
+script = SubResource("GDScript_qijm3")
+
+[node name="Start" type="TextureButton" parent="CenterContainer/MainButtons/Buttons" unique_id=1592923432]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 2.88
+anchor_bottom = 1.813
+offset_left = -44.791676
+offset_top = 68.65689
+offset_right = 562.2083
+offset_bottom = 349.6569
+scale = Vector2(0.174, 0.22)
+texture_normal = ExtResource("3_hfmub")
+texture_pressed = ExtResource("4_qv4ap")
+texture_hover = ExtResource("5_pthnt")
+
+[node name="Quit" type="TextureButton" parent="CenterContainer/MainButtons/Buttons" unique_id=634833015]
+layout_mode = 0
+offset_left = -56.249973
+offset_top = 147.87239
+offset_right = 733.75
+offset_bottom = 429.87238
+scale = Vector2(0.174, 0.22)
+texture_normal = ExtResource("6_hfmub")
+texture_pressed = ExtResource("7_qv4ap")
+texture_hover = ExtResource("8_pthnt")
+
+[node name="Hover" type="AudioStreamPlayer2D" parent="CenterContainer/MainButtons/Buttons" unique_id=841523224]
+unique_name_in_owner = true
+stream = ExtResource("9_2cyrx")
+volume_db = 9.665
+
+[node name="Click1" type="AudioStreamPlayer2D" parent="CenterContainer/MainButtons/Buttons" unique_id=1931457688]
+unique_name_in_owner = true
+stream = ExtResource("10_itrki")
+volume_db = 10.0
+
+[node name="Click2" type="AudioStreamPlayer2D" parent="CenterContainer/MainButtons/Buttons" unique_id=1726519394]
+unique_name_in_owner = true
+stream = ExtResource("11_usw6l")
+volume_db = 10.0
+
+[node name="Click3" type="AudioStreamPlayer2D" parent="CenterContainer/MainButtons/Buttons" unique_id=516279038]
+unique_name_in_owner = true
+stream = ExtResource("12_7r0px")
+volume_db = 10.0
+
+[node name="Woosh" type="AudioStreamPlayer2D" parent="CenterContainer/MainButtons/Buttons" unique_id=1700781391]
+unique_name_in_owner = true
+stream = ExtResource("13_l2k64")
+volume_db = 10.0
+
+[connection signal="mouse_entered" from="CenterContainer/MainButtons/Buttons/Start" to="CenterContainer/MainButtons/Buttons" method="_on_start_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/MainButtons/Buttons/Start" to="CenterContainer/MainButtons/Buttons" method="_on_start_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/MainButtons/Buttons/Quit" to="CenterContainer/MainButtons/Buttons" method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/MainButtons/Buttons/Quit" to="CenterContainer/MainButtons/Buttons" method="_on_quit_pressed"]

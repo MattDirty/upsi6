@@ -3,6 +3,7 @@ class_name Player
 
 @export var speed = 400
 @export var health := 100
+@export var dullarz := 0
 @onready var directionsNode = {
 	"north": $"Directions/N",
 	"northeast": $"Directions/NE",
@@ -22,6 +23,7 @@ var action = "Idle"
 	
 func die():
 	print('player dead')
+	get_tree().change_scene_to_file("res://YouDied/you_died.tscn")
 	queue_free()
 	
 
@@ -30,6 +32,10 @@ func affect_health(amount: int):
 	if health <= 0:
 		die()
 	Manager.GUIInstance.update_health(health)
+
+func affect_dullarz(amount: int):
+	dullarz += amount
+	Manager.GUIInstance.update_dullarz(dullarz)
 
 func get_hit():
 	$TankSprite.play("hit")

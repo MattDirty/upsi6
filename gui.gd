@@ -6,3 +6,6 @@ func _ready() -> void:
 
 func update_health(health: int) -> void:
 	$"LifeCounter/LifeVal".text = str(health)
+
+func update_dullarz(dullarz: int) -> void:
+	$"CashCounter/CashVal".text = str(dullarz)

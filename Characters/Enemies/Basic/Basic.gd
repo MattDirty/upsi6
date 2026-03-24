@@ -5,12 +5,12 @@ func die():
 	if is_dying: # j'avais des bugs qui rentraient 2 fois dans die
 		return
 	is_dying = true 
+	Manager.PlayerInstance.affect_dullarz(damages)
 	if $MoveSound.stream != null:
 		$MoveSound.stop()
 	$EnemyAnim.play("explosion")
 	$DieSound.play()
 	await $EnemyAnim.animation_finished
-	Manager.PlayerInstance.affect_dullarz(damages)
 	queue_free()
 
 

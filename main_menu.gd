@@ -1,5 +1,9 @@
 extends Node2D
 
+func ready():
+	LevelManager.generate_levels(5)
+	LevelManager.start_level(0)
+
 func _on_start_mouse_entered() -> void:
 	%Hover.play()
 
@@ -15,7 +19,8 @@ func _on_quit_mouse_entered() -> void:
 func _on_start_pressed() -> void:
 	%Click1.play()
 	await get_tree().create_timer(.25).timeout
-	get_tree().change_scene_to_file("res://map.tscn")
+	get_tree().change_scene_to_file("res://Playground.tscn")
+	
 
 
 func _on_options_pressed() -> void:

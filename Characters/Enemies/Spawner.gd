@@ -134,15 +134,27 @@ const ENEMIES = {
 }
 var ENEMY_TYPES = ENEMIES.keys()
 
-@onready var PlayerInstance := $"%Player"
+# gestion des niveaux
+var lvl: Level
 
+@onready var PlayerInstance := $"%Player"
+@onready var level_title: CanvasLayer = $"%LevelTitle"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	container = Node.new()
 	container.name = container_name
 	add_sibling.call_deferred(container)
+	LevelManager.generate_levels(20)
+	LevelManager.level_started.connect(_on_level_started)
+	LevelManager.start_level(0)
 
+func _on_level_started(level: Level):
+	lvl = level
+	spawn_rate = level.spawn_rate
+	max_units = level.total_ennemies
+	PlayerInstance.health += 25
+	level_title.show_title.call_deferred("Level %d" % (LevelManager.current_index + 1))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -152,6 +164,7 @@ func _process(delta):
 			total_spawned += 1
 			spawnCharacter()
 			if max_units > 0 and total_spawned >= max_units:
+				LevelManager.level_complete()
 				queue_free()
 				return
 		time_since_last_spawn = 0
@@ -169,7 +182,6 @@ func createCharacterAnim():
 
 	$AnimatedSprite2D.sprite_frames = sprite_frames
 	$AnimatedSprite2D.play("explosion")
-
 
 func build_sprite_frames(enemy_key: String, base_sf: SpriteFrames) -> SpriteFrames:
 	var enemy_type = ENEMIES[enemy_key]
@@ -191,6 +203,15 @@ func select_random_type():
 	var enemy_type = ENEMY_TYPES[rando]
 	return enemy_type
 
+func get_enemy_sprite(new_character, enemy_type):
+	var enemy_sprite = new_character.get_node("EnemyAnim")
+	new_character.set("speed",ENEMIES[enemy_type]["speed"])
+	new_character.set("damages",ENEMIES[enemy_type]["damages"])
+	var sf = build_sprite_frames(enemy_type, enemy_sprite.sprite_frames)
+	enemy_sprite.scale = Vector2(0.1, 0.1)  
+	enemy_sprite.sprite_frames = sf
+	return enemy_sprite
+
 func spawnCharacter():
 	if Manager.PlayerInstance == null:
 		return
@@ -199,16 +220,9 @@ func spawnCharacter():
 	new_character.name = container_name + "_unit" + str(total_spawned)
 	new_character.position = spawn_position + PlayerInstance.position
 	
-	# new section to manage enemy types avec anim
 	container.add_child(new_character)
-	var enemy_sprite = new_character.get_node("EnemyAnim")
 	var enemy_type = select_random_type()
-	#new_character.speed = ENEMIES[enemy_type]["speed"]
-	new_character.set("speed",ENEMIES[enemy_type]["speed"])
-	new_character.set("damages",ENEMIES[enemy_type]["damages"])
-	var sf = build_sprite_frames(enemy_type, enemy_sprite.sprite_frames)
-	enemy_sprite.scale = Vector2(0.1, 0.1)  
-	enemy_sprite.sprite_frames = sf
+	var enemy_sprite = get_enemy_sprite(new_character, enemy_type)
 	enemy_sprite.play("idle")
 	
 	var die_player = new_character.get_node("DieSound")

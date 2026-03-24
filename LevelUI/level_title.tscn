@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dxd548i80noj1"]
+
+[ext_resource type="Script" uid="uid://c1ggthfnfvkec" path="res://LevelUI/level_title.gd" id="1_1sf8t"]
+[ext_resource type="FontFile" uid="uid://rx80chcdgq1h" path="res://Fonts/SilomBol.ttf" id="2_k3rmg"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1325729018]
+script = ExtResource("1_1sf8t")
+
+[node name="Title" type="Label" parent="." unique_id=1484921481]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -141.0
+offset_right = -44.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.72499996, 0.87, 1)
+theme_override_fonts/font = ExtResource("2_k3rmg")
+theme_override_font_sizes/font_size = 120

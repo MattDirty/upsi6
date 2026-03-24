@@ -25,7 +25,6 @@ func die():
 	print('player dead')
 	get_tree().change_scene_to_file("res://YouDied/you_died.tscn")
 	queue_free()
-	
 
 func affect_health(amount: int):
 	health += amount

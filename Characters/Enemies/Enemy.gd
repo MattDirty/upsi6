@@ -10,14 +10,19 @@ var damages: int = 5
 @onready var label: Label = $"Label"
 var move_sound: AudioStream # pour donner des sons spécifiques aux différents ennemis
 var is_dying: bool = false # pour arrêter le mouvement des enemis quand ils meurent
+var lvl: Level
+var word_len: Array = range(3,6)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	word = WordsList.get_random_word()
+	word = WordsList.get_random_word(word_len)
 	typed = ""
 	label.text = word
 
-
+func _on_level_started(level: Level):
+	lvl = level
+	word_len = range(level.word_min_length,level.word_max_length)
+	
 func die():
 	#overwrite this in child classes for different death behavior
 	is_dying = true # pour arrêter le déplacement avant la fin de l'anim explisoin

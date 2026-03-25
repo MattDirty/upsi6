@@ -9,9 +9,9 @@ func generate_levels(count: int) -> void:
 	levels.clear()
 	for i in count:
 		var d := Level.new()
-		d.word_min_length = 3          
+		d.word_min_length = 3 + i/3         
 		d.word_max_length = 6 + i
-		d.spawn_rate      = max(0.5, 3.0 - i * 0.15)  
+		d.spawn_rate      = max(0.2, 2.0 - i * 0.15)  
 		d.total_ennemies   = 5 + i * 5
 		levels.append(d)
 

@@ -51,7 +51,7 @@ const ENEMIES = {
 		],
 		"fps": 8,
 		"loop": true,
-		"speed": 30,
+		"speed": 25,
 		"damages": 10,
 		"move_sound": null,
 		"die_sound": preload("res://SFX/Enemies/explosion1.wav"),
@@ -62,7 +62,7 @@ const ENEMIES = {
 		],
 		"fps": 8,
 		"loop": true,
-		"speed": 25,
+		"speed": 20,
 		"damages": 10,
 		"move_sound": null,
 		"die_sound": preload("res://SFX/Enemies/explosion3.mp3"),
@@ -125,7 +125,7 @@ const ENEMIES = {
 		],
 		"fps": 15,
 		"loop": true,
-		"speed": 2,
+		"speed": 3,
 		"scale":.1,
 		"damages": 20,
 		"move_sound": preload("res://SFX/Enemies/Green/move.mp3"),
@@ -154,12 +154,12 @@ func _on_level_started(level: Level):
 	spawn_rate = level.spawn_rate
 	max_units = level.total_ennemies
 	total_spawned = 0
+	print("on level started")
+	level_title.show_title.call_deferred("Level %d" % (LevelManager.current_index + 1))
 	var health_up = PlayerInstance.health
 	health_up += 25
 	PlayerInstance.health = min(100,health_up)
-	print("on level started")
-	level_title.show_title.call_deferred("Level %d" % (LevelManager.current_index + 1))
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	time_since_last_spawn += delta

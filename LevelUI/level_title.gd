@@ -23,3 +23,7 @@ func show_title(text: String) -> void:
 	tween.chain().tween_property(label, "modulate:a", 0.0, 0.6)
 	tween.tween_property(label, "scale", Vector2(1.3, 1.3), 0.6)\
 		 .set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+		
+	# put on top of gui
+	tween.chain().tween_property(label, "scale", Vector2(.3,.3), 0.5)
+	tween.tween_property(label, "modulate:a", .8, 0.5)
